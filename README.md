@@ -1,70 +1,104 @@
 # Customer Churn Prediction
 
-An end-to-end machine-learning project that identifies customers who may stop using a subscription service. Built with Python, pandas, scikit-learn, optional XGBoost, Matplotlib/Seaborn, and Streamlit.
+An end-to-end Machine Learning project that predicts customers who may stop using a subscription service. Built using Python, Pandas, Scikit-learn, Matplotlib, Seaborn, and Streamlit.
 
-## Project highlights
-- Exploratory data analysis (EDA) and churn-pattern visualizations
-- Data preprocessing with missing-value handling, one-hot encoding, and scaling
-- Logistic Regression, Random Forest, and XGBoost (when installed)
-- Evaluation with **Accuracy, Recall, ROC-AUC**, plus precision, F1-score, and confusion matrix
-- Model comparison table and ROC curves
-- Streamlit dashboard for exploring the data and testing a customer profile
-- Reproducible demo dataset included in `data/telco_churn.csv`
+## Project Highlights
 
-> **Dataset note:** The bundled CSV is a synthetic, realistic-shaped telecom-style dataset generated for this portfolio project. It is not the original IBM Telco Customer Churn dataset and should not be presented as real customer data. Replace it with a properly licensed dataset for real-world analysis.
+- Exploratory Data Analysis (EDA) and churn visualization.
+- Data preprocessing, missing-value handling, one-hot encoding, and feature scaling.
+- Machine learning models: Logistic Regression, Random Forest, and optional XGBoost.
+- Model evaluation using Accuracy, Precision, Recall, F1-Score, ROC-AUC, and Confusion Matrix.
+- Model comparison and ROC curve visualization.
+- Interactive Streamlit dashboard for data exploration and customer churn prediction.
+- Included demo dataset for reproducible experimentation.
 
-## Folder structure
+## Dataset
+
+The project includes a synthetic telecom-style dataset at `data/telco_churn.csv`. It is intended for demonstration and learning purposes and is not the original IBM Telco Customer Churn dataset.
+
+## Technologies Used
+
+- Python
+- Pandas and NumPy
+- Scikit-learn
+- Matplotlib and Seaborn
+- XGBoost (optional)
+- Streamlit
+
+## Project Structure
+
 ```text
 customer-churn-prediction/
-├── app.py                  # Interactive Streamlit app
-├── train.py                # Train and compare classification models
-├── eda.py                  # Create EDA charts
+├── app.py
+├── train.py
+├── eda.py
 ├── requirements.txt
-├── data/telco_churn.csv    # Synthetic demo dataset
-├── models/                 # Saved model pipeline + comparison results (created by train.py)
-├── reports/figures/        # Generated charts
-└── src/churn_utils.py      # Shared preprocessing/training utilities
+├── data/
+│   └── telco_churn.csv
+├── models/
+├── reports/
+│   └── figures/
+└── src/
+    └── churn_utils.py
 ```
 
-## 1. Run locally
-Python 3.10–3.12 recommended.
+## Installation and Setup
+
+### 1. Clone the repository
 
 ```bash
-# Create and activate a virtual environment (Windows)
-python -m venv .venv
-.venv\Scripts\activate
+git clone https://github.com/khushi-project-space/customer-churn-prediction.git
+cd customer-churn-prediction
+```
 
-# macOS/Linux activation: source .venv/bin/activate
+### 2. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it on Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### 4. Run Exploratory Data Analysis
+
+```bash
 python eda.py
+```
+
+### 5. Train and compare models
+
+```bash
 python train.py
+```
+
+### 6. Launch the Streamlit dashboard
+
+```bash
 streamlit run app.py
 ```
 
-The first training run writes model pipelines and metrics under `models/`, and charts under `reports/figures/`. Logistic Regression and Random Forest run by default. To include XGBoost as well, install the listed dependency and set `CHURN_INCLUDE_XGBOOST=1` before running `python train.py` (Windows CMD: `set CHURN_INCLUDE_XGBOOST=1`).
+## Model Evaluation
 
-## 2. Use another dataset
-Replace `data/telco_churn.csv` with a CSV containing a target column named `Churn` (`Yes`/`No` or `1`/`0`). The app and training script automatically exclude `customerID` as an identifier. Keep the target and feature names consistent, or update `TARGET` in `src/churn_utils.py`.
-
-## 3. GitHub upload
-1. Extract the ZIP.
-2. Open the extracted project folder.
-3. Create a new GitHub repository named `customer-churn-prediction`.
-4. Upload the project files, or run:
-   ```bash
-   git init
-   git add .
-   git commit -m "Add customer churn prediction project"
-   git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/customer-churn-prediction.git
-   git push -u origin main
-   ```
-5. Add screenshots of the running Streamlit app to the README after running it locally.
-
-## 4. Important interpretation
-Churn recall measures the fraction of actual churners identified by the model. In retention work, recall can be important because missed churners may represent lost revenue. Accuracy alone can be misleading when classes are imbalanced. Choose a decision threshold based on business costs, and validate models on fresh, representative data before operational use.
+The models are evaluated using Accuracy, Precision, Recall, F1-Score, ROC-AUC, and Confusion Matrix. Recall is especially useful for understanding how many actual churn customers are identified.
 
 ## Limitations
-- Synthetic data is for demonstration and learning only.
-- Scores are not evidence of real-world business performance.
-- No customer information is sent anywhere; the app runs locally unless deployed by the user.
+
+- The included dataset is synthetic and intended for educational use.
+- Model performance on synthetic data does not establish real-world performance.
+- Real-world use requires suitable, representative, and appropriately licensed data.
+
+## Future Improvements
+
+- Deploy the Streamlit application online.
+- Evaluate models on a real, appropriately licensed dataset.
+- Add additional customer retention insights and visualizations.
