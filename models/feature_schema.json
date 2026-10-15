@@ -1,0 +1,88 @@
+{
+  "features": [
+    "gender",
+    "SeniorCitizen",
+    "Partner",
+    "Dependents",
+    "tenure",
+    "PhoneService",
+    "InternetService",
+    "OnlineSecurity",
+    "TechSupport",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod",
+    "MonthlyCharges",
+    "TotalCharges"
+  ],
+  "dtypes": {
+    "gender": "str",
+    "SeniorCitizen": "int64",
+    "Partner": "str",
+    "Dependents": "str",
+    "tenure": "int64",
+    "PhoneService": "str",
+    "InternetService": "str",
+    "OnlineSecurity": "str",
+    "TechSupport": "str",
+    "Contract": "str",
+    "PaperlessBilling": "str",
+    "PaymentMethod": "str",
+    "MonthlyCharges": "float64",
+    "TotalCharges": "float64"
+  },
+  "categorical_values": {
+    "gender": [
+      "Female",
+      "Male"
+    ],
+    "Partner": [
+      "No",
+      "Yes"
+    ],
+    "Dependents": [
+      "No",
+      "Yes"
+    ],
+    "PhoneService": [
+      "No",
+      "Yes"
+    ],
+    "InternetService": [
+      "DSL",
+      "Fiber optic",
+      "No"
+    ],
+    "OnlineSecurity": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "TechSupport": [
+      "No",
+      "No internet service",
+      "Yes"
+    ],
+    "Contract": [
+      "Month-to-month",
+      "One year",
+      "Two year"
+    ],
+    "PaperlessBilling": [
+      "No",
+      "Yes"
+    ],
+    "PaymentMethod": [
+      "Bank transfer (automatic)",
+      "Credit card (automatic)",
+      "Electronic check",
+      "Mailed check"
+    ]
+  },
+  "numeric_defaults": {
+    "SeniorCitizen": 0.0,
+    "tenure": 35.0,
+    "MonthlyCharges": 73.4,
+    "TotalCharges": 2087.605
+  }
+}
